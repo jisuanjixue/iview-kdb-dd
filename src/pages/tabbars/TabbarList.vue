@@ -34,7 +34,7 @@ export default {
     return {
       columns: [
         {
-          title: '名称',
+          title: '导航名称',
           key: 'name'
         },
         {
@@ -151,7 +151,7 @@ export default {
   },
   methods: {
     getTabbars () {
-      this.$http.get('/tabbars').then((res) => {
+      this.$http.get('/admin/tabbars').then((res) => {
         this.tabbars = res.data.tabbars
       })
     },
@@ -164,7 +164,7 @@ export default {
     },
     ok () {
       this.tabbars.splice(this.delete._index, 1)
-      this.$http.delete('/tabbars/' + this.delete.id).then((res) => {
+      this.$http.delete('/admin/tabbars/' + this.delete.id).then((res) => {
         this.getTabbars()
       })
       this.$Message.info('已删除此导航！')
