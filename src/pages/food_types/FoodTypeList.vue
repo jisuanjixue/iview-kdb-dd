@@ -43,7 +43,7 @@ export default {
           key: 'action',
           align: 'center',
           render: (h, params) => {
-            if (this.manager.role === 'merchant_admin') {
+            // if (this.manager.role === 'merchant_admin') {
               return h('div', [
                 h('Button', {
                   props: {
@@ -74,7 +74,7 @@ export default {
                   }
                 }, '删除')
               ])
-            }
+            // }
           }
         }
         // {

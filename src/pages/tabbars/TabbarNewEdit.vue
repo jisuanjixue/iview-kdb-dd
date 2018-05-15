@@ -77,7 +77,7 @@ export default {
       this.formTitle = '新建页头'
     } else {
       this.formTitle = '编辑页头'
-      this.$http.get('/tabbars/' + this.$route.params.id).then((res) => {
+      this.$http.get('/admin/tabbars/' + this.$route.params.id).then((res) => {
         this.tabbar = res.data.tabbar
       })
     }
@@ -92,22 +92,22 @@ export default {
     },
     commitSave () {
       if (this.$route.name === 'TabbarNew') {
-        this.$http.post('/tabbars', {tabbar: this.tabbar}).then((res) => {
+        this.$http.post('/admin/tabbars', {tabbar: this.tabbar}).then((res) => {
           if (res.data.status === 1) {
             this.$Message.success('新建成功！')
           } else {
             this.$Message.error(res.data.notice)
           }
-          this.$router.push('/tabbars')
+          this.$router.push('/admin/tabbars')
         })
       } else {
-        this.$http.put('/tabbars/' + this.$route.params.id, this.tabbar).then((res) => {
+        this.$http.put('/admin/tabbars/' + this.$route.params.id, this.tabbar).then((res) => {
           if (res.data.status === 1) {
             this.$Message.success('修改成功！')
           } else {
             this.$Message.error(res.data.notice)
           }
-          this.$router.push('/tabbars')
+          this.$router.push('/admin/tabbars')
         })
       }
     },
