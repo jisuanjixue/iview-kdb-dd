@@ -69,24 +69,24 @@ export default {
               ])
             // }
           }
-        },
-        {
-          title: '拖拽排序',
-          key: 'drag',
-          width: 90,
-          align: 'center',
-          render: (h) => {
-            return h(
-              'Icon',
-              {
-                props: {
-                  type: 'arrow-move',
-                  size: 24
-                }
-              }
-            )
-          }
         }
+        // {
+        //   title: '拖拽排序',
+        //   key: 'drag',
+        //   width: 90,
+        //   align: 'center',
+        //   render: (h) => {
+        //     return h(
+        //       'Icon',
+        //       {
+        //         props: {
+        //           type: 'arrow-move',
+        //           size: 24
+        //         }
+        //       }
+        //     )
+        //   }
+        // }
       ],
       goodsTypes: [],
       goodsType: null,
@@ -104,8 +104,8 @@ export default {
   },
   methods: {
     getGoodsTypes () {
-      this.$http.get('/manager/goods_types').then((res) => {
-        console.log(res.data)
+      this.$http.get('/admin/goods_types').then((res) => {
+        // console.log(res.data)
         this.goodsTypes = res.data.goods_types
       })
     },
@@ -114,7 +114,7 @@ export default {
     },
     ok () {
       this.goodsTypes.splice(this.deleteGoodType._index, 1)
-      this.$http.delete('/goods_types/' + this.deleteGoodType.id).then((res) => {
+      this.$http.delete('/admin/goods_types/' + this.deleteGoodType.id).then((res) => {
         this.getGoodsTypes()
       })
       this.$Message.info('已删除此用货种！')
@@ -125,15 +125,15 @@ export default {
     showModal (row) {
       this.modal = true
       this.deleteGoodType = row
-    },
-    handleOnstart1 (from) {},
-    handleOnend1 (e) {
-      if (e.from !== e.to) {
-        axios.get('/goods_types?from=' + e.from + '&to=' + e.to).then((res) => {
-          this.goodsTypes = res.data.goods_types
-        })
-      }
     }
+    // handleOnstart1 (from) {},
+    // handleOnend1 (e) {
+    //   if (e.from !== e.to) {
+    //     axios.get('/goods_types?from=' + e.from + '&to=' + e.to).then((res) => {
+    //       this.goodsTypes = res.data.goods_types
+    //     })
+    //   }
+    // }
   }
 }
 </script>

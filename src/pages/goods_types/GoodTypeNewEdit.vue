@@ -34,7 +34,7 @@ export default {
       this.formTitle = '新建货品类型'
     } else {
       this.formTitle = '编辑货品类型'
-      this.$http.get('/manager/goods_types/' + this.$route.params.id).then((res) => {
+      this.$http.get('/admin/goods_types/' + this.$route.params.id).then((res) => {
         this.goodsType = res.data.goods_type
       })
     }
@@ -49,22 +49,22 @@ export default {
     },
     commitSave () {
       if (this.$route.name === 'GoodTypeNew') {
-        this.$http.post('/manager/goods_types', {goods_type: this.goodsType}).then((res) => {
+        this.$http.post('/admin/goods_types', {goods_type: this.goodsType}).then((res) => {
           if (res.data.status === 1) {
             this.$Message.success('新建成功！')
           } else {
             this.$Message.error(res.data.notice)
           }
-          this.$router.push('/manager/goods_types')
+          this.$router.go(-1)
         })
       } else {
-        this.$http.put('/manager/goods_types/' + this.$route.params.id, this.goodsType).then((res) => {
+        this.$http.put('/admin/goods_types/' + this.$route.params.id, this.goodsType).then((res) => {
           if (res.data.status === 1) {
             this.$Message.success('修改成功！')
           } else {
             this.$Message.error(res.data.notice)
           }
-          this.$router.push('/manager/goods_types')
+          this.$router.go(-1)
         })
       }
     },

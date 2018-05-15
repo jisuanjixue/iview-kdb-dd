@@ -23,7 +23,7 @@ const router = new Router({
           },
           meta: { menuName: 'Index' }
         },
-        // 站点管理
+        // 平台管理的站点
         {
           path: '/sites',
           name: 'SiteList',
@@ -41,14 +41,6 @@ const router = new Router({
           meta: { menuName: 'Sites' }
         },
         {
-          path: '/sites/:id/edit',
-          name: 'SiteEdit',
-          component(resolve) {
-            require(['../pages/sites/SiteNewEdit.vue'], resolve)
-          },
-          meta: { menuName: 'Sites' }
-        },
-        {
           path: '/sites/:id/show',
           name: 'SiteDesc',
           component(resolve) {
@@ -56,6 +48,16 @@ const router = new Router({
           },
           meta: { menuName: 'Sites' }
         },
+        // 站点管理的基础配置
+        {
+          path: '/sites/edit',
+          name: 'SiteEdit',
+          component(resolve) {
+            require(['../pages/sites/SiteNewEdit.vue'], resolve)
+          },
+          meta: { menuName: 'Sites' }
+        },
+
         // 管理员管理
         {
           path: '/managers',

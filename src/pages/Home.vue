@@ -137,7 +137,7 @@ export default {
         id: '1001',
         menuId: '1',
         name: 'Sites',
-        nickname: '站点管理',
+        nickname: '站点',
         url: '/sites',
         icon: 'home'
       }, {
@@ -156,7 +156,7 @@ export default {
       subCates: [{
         id: '2001',
         menuId: '2',
-        name: 'Sites',
+        name: 'SiteEdit',
         nickname: '基础配置',
         url: '/sites/edit',
         icon: 'wrench'
