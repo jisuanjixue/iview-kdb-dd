@@ -137,7 +137,7 @@ export default {
         id: '1001',
         menuId: '1',
         name: 'Sites',
-        nickname: '站点',
+        nickname: '多站点',
         url: '/sites',
         icon: 'home'
       }, {
