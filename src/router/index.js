@@ -48,6 +48,14 @@ const router = new Router({
           },
           meta: { menuName: 'Sites' }
         },
+        {
+          path: '/sites/:id/edit',
+          name: 'SiteEdit',
+          component(resolve) {
+            require(['../pages/sites/SiteNewEdit.vue'], resolve)
+          },
+          meta: { menuName: 'Sites' }
+        },
         // 站点管理的基础配置
         {
           path: '/sites/edit',

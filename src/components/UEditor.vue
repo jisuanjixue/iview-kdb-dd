@@ -9,7 +9,7 @@ export default {
     ueditorPath: {
       // UEditor 代码的路径
       type: String,
-      default: global.UEDITORURL
+      default: util.UEDITORURL
     },
     ueditorConfig: {
       // UEditor 配置项

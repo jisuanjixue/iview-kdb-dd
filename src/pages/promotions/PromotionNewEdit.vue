@@ -36,12 +36,12 @@
           <Button type="ghost" icon="ios-cloud-upload-outline">上传图片</Button>
         </Upload>
       </FormItem>
-      <FormItem label="详细内容" prop="content">
+      <!-- <FormItem label="详细内容" prop="content">
         <ueditor @ready="editorReady"></ueditor>
       </FormItem>
       <FormItem label="活动规则" prop="rules">
         <ueditor @ready="editorReady1"></ueditor>
-      </FormItem>
+      </FormItem> -->
       <FormItem>
         <Button type="primary" @click="handleSubmit('promotion')">提交</Button>
         <Button type="ghost" style="margin-left: 8px" @click="back">返回</Button>
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import ueditor from '../components/UEditor'
+// import ueditor from '@/components/UEditor'
 // import { mapState } from 'vuex'
 export default {
   components: {

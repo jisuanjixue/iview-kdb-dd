@@ -8,6 +8,8 @@ util.title = function(title) {
     title = title ? title + ' - Home' : 'iView project';
     window.document.title = title;
 }
+// 编辑器URL
+util.UEDITORURL = '/static/ueditor1_4_3_3/'
 const ajaxUrl = env === 'development' ?
     'http://mock.eolinker.com/sGMj1Zbaa82a6288472b83277d2ef960db78cb31d33681f?uri=':
     env === 'production' ?
