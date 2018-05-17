@@ -65,13 +65,13 @@ export default {
             })
           }
         },
-        // {
-        //   title: '是否激活',
-        //   key: 'active',
-        //   render: (h, params) => {
-        //     return h('div', params.row.active === true ? '已激活' : '未激活')
-        //   }
-        // },
+        {
+          title: '是否激活',
+          key: 'active',
+          render: (h, params) => {
+            return h('div', params.row.active === true ? '已激活' : '未激活')
+          }
+        },
         {
           title: '创建时间',
           key: 'created_at'

@@ -36,28 +36,20 @@ export default {
           key: 'title'
         },
         {
-          title: '转盘或默认',
-          key: 'render'
+          title: '活动浏览量',
+          key: 'view_count'
         },
         {
-          title: '描述',
-          key: 'desc'
+          title: '活动卡券发送量',
+          key: 'coupons_count'
         },
         {
-          title: '内容',
-          key: 'content'
+          title: '活动抽奖用户个数',
+          key: 'promotion_users_count'
         },
         {
-          title: '规则',
-          key: 'rules'
-        },
-        {
-          title: '抽奖次数',
-          key: 'get_count'
-        },
-        {
-          title: '备注',
-          key: 'remark'
+          title: '活动位置',
+          key: 'position'
         },
         {
           title: '创建时间',

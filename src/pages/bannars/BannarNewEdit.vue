@@ -12,16 +12,16 @@
       </FormItem>
       <FormItem label="图片" prop="image">
         <img :src="bannar.img" v-if="bannar.img !== null"></img>
-        <!-- <Upload :action="Url + '/pictures'" :headers="headers" name="picture[image]" :on-success="upload">
+        <Upload :action="Url + '/pictures'" :headers="headers" name="picture[image]" :on-success="upload">
           <Button type="ghost" icon="ios-cloud-upload-outline">上传图片</Button>
-        </Upload> -->
+        </Upload>
       </FormItem>
-      <!-- <FormItem label="是否激活" prop="active">
+      <FormItem label="是否激活" prop="active">
         <i-switch v-model="bannar.active" :true-value="true" :false-value="false" size="large">
           <span slot="open">开启</span>
           <span slot="close">关闭</span>
         </i-switch>
-      </FormItem> -->
+      </FormItem>
       <FormItem>
         <Button type="primary" @click="handleSubmit('bannar')">提交</Button>
         <Button type="ghost" style="margin-left: 8px" @click="back">返回</Button>
@@ -37,8 +37,8 @@ export default {
       bannar: {
         title: null,
         url: null,
-        img: null
-        // active: null
+        img: null,
+        active: null
       },
       ruleInline: {
         title: [
@@ -54,8 +54,8 @@ export default {
     }
   },
   created () {
-    // this.Url = global.URL
-    // this.headers = this.$http.defaults.headers.common
+    this.Url = global.URL
+    this.headers = this.$http.defaults.headers.common
     if (this.$route.name === 'BannarNew') {
       this.formTitle = '新建页头'
     } else {
@@ -96,10 +96,10 @@ export default {
     },
     back () {
       this.$router.go(-1)
+    },
+    upload (res) {
+      this.bannar.image = res.picture.image_url
     }
-    // upload (res) {
-    //   this.bannar.image = res.picture.image_url
-    // }
   }
 }
 </script>

@@ -55,7 +55,7 @@ export default {
     }
   },
   created () {
-    // this.Url = global.URL
+    // this.Url = ajaxUrl
     // this.headers = this.$http.defaults.headers.common
     if (this.$route.name === 'PageNew') {
       this.formTitle = '新建文章'
@@ -105,7 +105,7 @@ export default {
     },
     back () {
       this.$router.go(-1)
-    },
+    }
     // editorReady (editorInstance) {
     //   this.getPage(editorInstance)
     // },

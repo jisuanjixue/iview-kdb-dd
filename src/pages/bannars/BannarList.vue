@@ -57,13 +57,13 @@ export default {
             })
           }
         },
-        // {
-        //   title: '是否激活',
-        //   key: 'active',
-        //   render: (h, params) => {
-        //     return h('div', params.row.active === true ? '已激活' : '未激活')
-        //   }
-        // },
+        {
+          title: '是否激活',
+          key: 'active',
+          render: (h, params) => {
+            return h('div', params.row.active === true ? '已激活' : '未激活')
+          }
+        },
         {
           title: '创建时间',
           key: 'created_at'
@@ -156,7 +156,7 @@ export default {
       this.$Message.info('您取消了操作！')
     }
     // handleOnstart1 (from) {
-    // }
+    // },
     // handleOnend1 (e) {
     //   if (e.from !== e.to) {
     //     this.$http.get('/bannars?from=' + e.from + '&to=' + e.to).then((res) => {
