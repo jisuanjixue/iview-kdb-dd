@@ -1,17 +1,17 @@
 <template>
-  <div v-if="keyWord">
+  <div v-if="keyword">
     <div class="form-title">
       <h3>{{formTitle}}</h3>
     </div>
-    <Form :model="keyWord" :label-width="100" ref="keyWord" :rules="ruleInline">
-      <FormItem label="关键字" prop="word">
-        <Input v-model="keyWord.word" placeholder="例如:客服电话"></Input>
+    <Form :model="keyword" :label-width="100" ref="keyword" :rules="ruleInline">
+      <FormItem label="关键字" prop="keyword">
+        <Input v-model="keyword.word" placeholder="例如:客服电话"></Input>
       </FormItem>
-      <FormItem label="关键字" prop="content">
-        <Input v-model="keyWord.content" placeholder="例如:感谢关注!我们的客服电话是0991-1234567"></Input>
+      <FormItem label="回复内容" prop="reply">
+        <Input v-model="keyword.reply" placeholder="例如:感谢关注!我们的客服电话是0991-1234567"></Input>
       </FormItem>
       <FormItem>
-        <Button type="primary" @click="handleSubmit('keyWord')">提交</Button>
+        <Button type="primary" @click="handleSubmit('keyword')">提交</Button>
         <Button type="ghost" style="margin-left: 8px" @click="back">返回</Button>
       </FormItem>
     </Form>
@@ -22,15 +22,15 @@
 export default {
   data () {
     return {
-      keyWord: {
-        name: '',
-        content: ''
+      keyword: {
+        word: '',
+        reply: ''
       },
       ruleInline: {
         word: [
           { required: true, message: '请填写关键字', trigger: 'blur' }
         ],
-        content: [
+        reply: [
           { required: true, message: '请填写回复内容', trigger: 'blur' }
         ]
       }
@@ -41,8 +41,8 @@ export default {
       this.formTitle = '新建关键字回复'
     } else {
       this.formTitle = '编辑关键字回复'
-      this.$http.get('/admin/key_words/' + this.$route.params.id).then((res) => {
-        this.keyWord = res.data.keyWord
+      this.$http.get('/admin/keywords/' + this.$route.params.id).then((res) => {
+        this.keyword = res.data.keyword
       })
     }
   },
@@ -56,22 +56,22 @@ export default {
     },
     commitSave () {
       if (this.$route.name === 'KeyWordNew') {
-        this.$http.post('/admin/key_words', {keyWord: this.keyWord}).then((res) => {
+        this.$http.post('/admin/keywords', {keyword: this.keyword}).then((res) => {
           if (res.data.status === 1) {
             this.$Message.success('新建成功！')
           } else {
             this.$Message.error(res.data.notice)
           }
-          this.$router.push('/admin/key_words')
+          this.$router.go(-1)
         })
       } else {
-        this.$http.put('/admin/key_words/' + this.$route.params.id, this.keyWord).then((res) => {
+        this.$http.put('/admin/keywords/' + this.$route.params.id, this.keyword).then((res) => {
           if (res.data.status === 1) {
             this.$Message.success('修改成功！')
           } else {
             this.$Message.error(res.data.notice)
           }
-          this.$router.push('/admin/key_words')
+          this.$router.go(-1)
         })
       }
     },

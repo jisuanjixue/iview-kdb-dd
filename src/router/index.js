@@ -56,16 +56,6 @@ const router = new Router({
           },
           meta: { menuName: 'Sites' }
         },
-        // 站点管理的基础配置
-        {
-          path: '/sites/edit',
-          name: 'SiteEdit',
-          component(resolve) {
-            require(['../pages/sites/SiteNewEdit.vue'], resolve)
-          },
-          meta: { menuName: 'Sites' }
-        },
-
         // 管理员管理
         {
           path: '/managers',
@@ -360,22 +350,6 @@ const router = new Router({
           },
           meta: { menuName: 'CouponOrders' }
         },
-        // {
-        //   path: '/coupon_orders/new',
-        //   name: 'CouponOrderNew',
-        //   component(resolve) {
-        //     require(['../pages/coupon_types/CouponOrderNewEdit.vue'], resolve)
-        //   },
-        //   meta: { menuName: 'CouponOrders' }
-        // },
-        // {
-        //   path: '/coupon_orders/:id/edit',
-        //   name: 'CouponOrderEdit',
-        //   component(resolve) {
-        //     require(['../pages/coupon_types/CouponOrderNewEdit.vue'], resolve)
-        //   },
-        //   meta: { menuName: 'CouponOrders' }
-        // },
         //活动推广的红包类型
         {
           path: '/red_packet_types',

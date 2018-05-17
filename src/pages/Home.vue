@@ -153,22 +153,15 @@ export default {
       nickname: '站点管理',
       icon: 'gear-a',
       role: 'site_admin',
-      subCates: [{
+      subCates: [ {
         id: '2001',
-        menuId: '2',
-        name: 'SiteEdit',
-        nickname: '基础配置',
-        url: '/sites/edit',
-        icon: 'wrench'
-      }, {
-        id: '2002',
         menuId: '2',
         name: 'DiyMenus',
         nickname: '微信菜单',
         url: '/diymenus',
         icon: 'android-menu'
       }, {
-        id: '2003',
+        id: '2002',
         menuId: '2',
         name: 'QrCodes',
         nickname: '二维码管理',

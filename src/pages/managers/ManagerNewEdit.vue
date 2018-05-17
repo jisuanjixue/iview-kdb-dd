@@ -60,8 +60,8 @@ export default {
         // mobile: null,
         role: null,
         password: null,
-        password_confirmation: null,
-        site_id: null
+        password_confirmation: null
+        // site_id: null
         // merchant_id: null
       },
       ruleInline: {
@@ -90,9 +90,9 @@ export default {
       this.formTitle = '编辑管理员'
       this.$http.get('/admin/managers/' + this.$route.params.id).then((res) => {
         this.manager1 = res.data.manager
-        if (this.manager1.site_id !== null) {
-          this.getMerchant(this.manager1.site_id)
-        }
+        // if (this.manager1.site_id !== null) {
+        //   this.getMerchant(this.manager1.site_id)
+        // }
       })
     }
     // this.$http.get('/all_sites').then((res) => {

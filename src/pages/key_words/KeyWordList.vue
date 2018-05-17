@@ -5,14 +5,7 @@
         <Button type="success" icon="plus-round" @click="create">新建</Button>
       </Col>
     </Row>
-    <Table class="table" border :stripe="true" :data="keyWords" :columns="columns"></Table>
-    <!-- <DragableTable
-        v-model="foodsTypes"
-        :columns-list="columns"
-        @on-start="handleOnstart1"
-        @on-end="handleOnend1"
-        class="table"
-    ></DragableTable> -->
+    <Table class="table" border :stripe="true" :data="keywords" :columns="columns"></Table>
     <Modal
       width="300"
       v-model="modal"
@@ -25,12 +18,7 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex'
-// import DragableTable from '@/components/dragableTable.vue'
 export default {
-  // components: {
-  //   DragableTable
-  // },
   data () {
     return {
       columns: [
@@ -40,7 +28,7 @@ export default {
         },
         {
           title: '回复',
-          key: 'content'
+          key: 'reply'
         },
         {
           title: '操作',
@@ -81,32 +69,15 @@ export default {
             // }
           }
         }
-        // {
-        //   title: '拖拽排序',
-        //   key: 'drag',
-        //   width: 90,
-        //   align: 'center',
-        //   render: (h) => {
-        //     return h(
-        //       'Icon',
-        //       {
-        //         props: {
-        //           type: 'arrow-move',
-        //           size: 24
-        //         }
-        //       }
-        //     )
-        //   }
-        // }
       ],
-      keyWords: [],
-      keyWord: null,
+      keywords: [],
+      keyword: null,
       delete: null,
       modal: false
     }
   },
   created () {
-    this.getKeyWords()
+    this.getKeywords()
   },
   computed: {
     // ...mapState([
@@ -114,9 +85,9 @@ export default {
     // ])
   },
   methods: {
-    getKeyWords () {
-      this.$http.get('/admin/key_words').then((res) => {
-        this.keyWords = res.data.keyWords
+    getKeywords () {
+      this.$http.get('/admin/keywords').then((res) => {
+        this.keywords = res.data.keywords
       })
     },
     create () {
@@ -127,9 +98,9 @@ export default {
       this.delete = row
     },
     ok () {
-      this.keyWords.splice(this.delete._index, 1)
-      this.$http.delete('/admin/key_words/' + this.delete.id).then((res) => {
-        this.getKeyWords()
+      this.keywords.splice(this.delete._index, 1)
+      this.$http.delete('/admin/keywords/' + this.delete.id).then((res) => {
+        this.getKeywords()
         let msg = res.data.notice
         this.showInfos('已删除此关键字', msg)
       })
@@ -143,14 +114,6 @@ export default {
         desc: msg
       })
     }
-    // handleOnstart1 (from) {},
-    // handleOnend1 (e) {
-    //   if (e.from !== e.to) {
-    //     this.$http.get('/food_types?from=' + e.from + '&to=' + e.to).then((res) => {
-    //       this.foodsTypes = res.data.food_types
-    //     })
-    //   }
-    // }
   }
 }
 </script>
