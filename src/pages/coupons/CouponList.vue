@@ -18,15 +18,31 @@ export default {
       columns: [
         {
           title: '活动名称',
-          key: 'title'
-        },
-        {
-          title: '卡券名称',
           key: 'name'
         },
         {
-          title: '领取人',
-          key: 'nickname'
+          title: '领取用户',
+          key: 'user_id'
+        },
+        {
+          title: '类型',
+          key: 'coupon_type_id'
+        },
+        {
+          title: '状态',
+          key: 'status'
+        },
+        {
+          title: 'sn',
+          key: '优惠码'
+        },
+        {
+          title: '到期日期',
+          key: 'expire'
+        },
+        {
+          title: '使用日期',
+          key: 'used_at'
         },
         {
           title: '创建时间',
@@ -44,7 +60,7 @@ export default {
   },
   methods: {
     getCoupons (page) {
-      this.$http.get('/coupons?page=' + page + '&search=' + this.search).then((res) => {
+      this.$http.get('/admin/coupons?page=' + page + '&search=' + this.search).then((res) => {
         this.coupons = res.data.coupons
         this.total = res.data.total
         this.current_page = res.data.current_page
