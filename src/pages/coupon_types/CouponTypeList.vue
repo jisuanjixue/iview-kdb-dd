@@ -130,9 +130,9 @@ export default {
     create () {
       this.$router.push('/coupon_types/new')
     },
-    groups () {
-      this.$router.push('/coupon_types/groups')
-    },
+    // groups () {
+    //   this.$router.push('/coupon_types/groups')
+    // },
     showModal (row) {
       this.modal = true
       this.delete = row

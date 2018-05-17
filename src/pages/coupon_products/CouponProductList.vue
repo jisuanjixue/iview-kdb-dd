@@ -43,15 +43,15 @@ export default {
         },
         {
           title: '库存',
-          key: ' count'
+          key: 'stock'
         },
         {
           title: '销量',
-          key: ' sales'
+          key: 'buy_count'
         },
         {
           title: '创建时间',
-          key: ' created_at'
+          key: 'created_at'
         },
         // {
         //   title: '是否激活',

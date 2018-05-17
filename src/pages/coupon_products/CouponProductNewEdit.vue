@@ -10,15 +10,18 @@
       <FormItem label="价格" prop="price">
         <Input v-model="couponProduct.price" placeholder="请填写价格"></Input>
       </FormItem>
-      <FormItem label="库存" prop="count">
-        <Input v-model="couponProduct.count" placeholder="请填写价格"></Input>
+      <FormItem label="库存" prop="stock">
+        <Input v-model="couponProduct.stock" placeholder="请填写价格"></Input>
       </FormItem>
-      <FormItem label="销量" prop="sales">
-        <Input v-model="couponProduct.sales" placeholder="请填写价格"></Input>
+      <FormItem label="详细内容" prop="content">
+        <Input v-model="couponProduct.buy_count" placeholder="请填写价格"></Input>
       </FormItem>
-      <!-- <FormItem label="图片" prop="image">
+      <FormItem label="图片" prop="image">
         <img :src="couponProduct.img" v-if="couponProduct.img !== null"></img>
-      </FormItem> -->
+      </FormItem>
+      <FormItem label="每个用户限购数量" prop="user_buy_count">
+        <img :src="couponProduct.user_buy_count"></img>
+      </FormItem>
       <!-- <FormItem label="是否激活" prop="active">
         <i-switch v-model="couponProduct.active" :true-value="true" :false-value="false" size="large">
           <span slot="open">开启</span>
@@ -39,9 +42,11 @@ export default {
     return {
       couponProduct: {
         title: null,
+        stock: null,
         price: null,
-        count: null,
-        sales: null
+        content: null,
+        user_buy_count: null,
+        image: null
         // active: null
       },
       ruleInline: {
@@ -51,11 +56,14 @@ export default {
         price: [
           { required: true, message: '请填写价格', trigger: 'blur' }
         ],
-        count: [
+        stock: [
           { required: true, message: '请填写库存', trigger: 'blur' }
         ],
-        sales: [
-          { required: true, message: '请填写销量', trigger: 'blur' }
+        content: [
+          { required: true, message: '请填写内容', trigger: 'blur' }
+        ],
+        user_buy_count: [
+          { required: true, message: '请填写用户限购数量', trigger: 'blur' }
         ],
       }
     }
@@ -68,7 +76,7 @@ export default {
     } else {
       this.formTitle = '编辑页头'
       this.$http.get('/admin/coupon_products/' + this.$route.params.id).then((res) => {
-        this.couponProduct = res.data.couponProduct
+        this.couponProduct = res.data.coupon_product
       })
     }
   },
@@ -82,7 +90,7 @@ export default {
     },
     commitSave () {
       if (this.$route.name === 'CouponProductNew') {
-        this.$http.post('/admin/coupon_products/new', {couponProduct: this.couponProduct}).then((res) => {
+        this.$http.post('/admin/coupon_products/new', {coupon_product: this.couponProduct}).then((res) => {
           if (res.data.status === 1) {
             this.$Message.success('新建成功！')
           } else {
@@ -91,7 +99,7 @@ export default {
           this.$router.go(-1)
         })
       } else {
-        this.$http.put('/admin//coupon_products/' + this.$route.params.id, this.couponProduct).then((res) => {
+        this.$http.put('/admin/coupon_products/' + this.$route.params.id, this.couponProduct).then((res) => {
           if (res.data.status === 1) {
             this.$Message.success('修改成功！')
           } else {

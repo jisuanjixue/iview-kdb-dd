@@ -15,17 +15,17 @@
           <Option v-for="type in types" :value="type.value" :key="type.value">{{ type.label }}</Option>
         </Select>
       </FormItem>
-      <FormItem label="卡券发放类型" prop="style">
+      <!-- <FormItem label="卡券发放类型" prop="style">
         <Select v-model="coupon_type.style" style="width:200px">
           <Option v-for="style in styles" :value="style.key" :key="style.key">{{ style.value }}</Option>
         </Select>
-      </FormItem>
+      </FormItem> -->
       <!-- <FormItem label="选择使用门店" prop="merchant_address_ids">
         <Select v-model="coupon_type.merchant_address_ids" style="width:200px" multiple>
           <Option v-for="merchant_address in merchant_addresses" :value="merchant_address.id" :key="merchant_address.id">{{ merchant_address.name }}</Option>
         </Select>
       </FormItem> -->
-      <FormItem label="原价" prop="price" v-if="coupon_type.type === 2">
+      <!-- <FormItem label="原价" prop="price" v-if="coupon_type.type === 2">
         <InputNumber :min="0" v-model="coupon_type.price"></InputNumber>
       </FormItem>
       <FormItem label="现价" prop="current_price" v-if="coupon_type.type === 2">
@@ -42,7 +42,7 @@
       </FormItem>
       <FormItem label="体验物品名" prop="free_content" v-if="coupon_type.type === 4">
         <Input v-model="coupon_type.free_content" placeholder="请填写体验物品名"></Input>
-      </FormItem>
+      </FormItem> -->
       <FormItem label="使用规则" prop="rule">
         <Input v-model="coupon_type.rule" placeholder="请填写使用规则"></Input>
       </FormItem>
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 export default {
   data () {
     return {
@@ -142,20 +142,20 @@ export default {
           label: '体验券',
           value: 4
         }
-      ],
-      styles: null,
-      merchant_addresses: null
+      ]
+      // styles: null,
+      // merchant_addresses: null
     }
   },
   created () {
-    this.$http.get('/admin/coupon_types/style').then((res) => {
-      this.styles = res.data.styles
-    })
-    if (this.$route.name === 'CouponTypeNew1') {
+    // this.$http.get('/admin/coupon_types/style').then((res) => {
+    //   this.styles = res.data.styles
+    // })
+    if (this.$route.name === 'CouponTypeNew') {
       this.formTitle = '新建优惠券'
     } else {
       this.formTitle = '编辑优惠券'
-      this.$http.get('/coupon_types/' + this.$route.params.id).then((res) => {
+      this.$http.get('/admin/coupon_types/' + this.$route.params.id).then((res) => {
         this.coupon_type = res.data.coupon_types
       })
     }
