@@ -222,7 +222,7 @@ export default {
   },
   methods: {
     getFoods (page) {
-      this.$http.get('/foods' + '&page=' + page).then((res) => {
+      this.$http.get('/admin/foods' + '&page=' + page).then((res) => {
         this.foods = res.data.foods
         this.total = res.data.total
         this.current_page = res.data.current_page

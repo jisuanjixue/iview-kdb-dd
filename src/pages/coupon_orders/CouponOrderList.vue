@@ -39,7 +39,7 @@ export default {
         },
         {
           title: '付款时间',
-          key: ' paied_at'
+          key: 'paied_at'
         },
         {
           title: '创建时间',

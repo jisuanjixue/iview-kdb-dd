@@ -18,7 +18,7 @@ export default {
       columns: [
         {
           title: '货品名',
-          key: 'goods_name'
+          key: 'name'
         },
         {
           title: '进货量',

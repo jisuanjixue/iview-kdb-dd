@@ -33,8 +33,8 @@ export default {
           key: 'status'
         },
         {
-          title: 'sn',
-          key: '优惠码'
+          title: '优惠码',
+          key: 'sn'
         },
         {
           title: '到期日期',

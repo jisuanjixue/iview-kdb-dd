@@ -52,11 +52,11 @@ export default {
         },
         {
           title: '图标',
-          key: 'icon',
+          key: 'icon_url',
           render: (h, params) => {
             return h('img', {
               domProps: {
-                src: params.row.icon
+                src: params.row.icon_url
               },
               style: {
                 width: '40px',
