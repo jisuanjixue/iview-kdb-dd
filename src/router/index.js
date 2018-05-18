@@ -256,6 +256,15 @@ const router = new Router({
           },
           meta: { menuName: 'MerchantAddresses' }
         },
+        // 基础配置的核销记录
+        {
+          path: '/verification_logs',
+          name: 'VerificationLogList',
+          component(resolve) {
+            require(['../pages/verification_logs/VerificationLogList.vue'], resolve)
+          },
+          meta: { menuName: 'VerificationLogs' }
+        },
         // 基础配置的二维码管理
         //活动推广的活动管理
         {

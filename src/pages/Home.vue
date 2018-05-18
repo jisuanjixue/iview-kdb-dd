@@ -212,6 +212,13 @@ export default {
       }, {
         id: '3006',
         menuId: '3',
+        name: 'VerificationLogs',
+        nickname: '消费记录',
+        url: '/verification_logs',
+        icon: 'speakerphone'
+      }, {
+        id: '3007',
+        menuId: '3',
         name: 'MerchantQrCodes',
         nickname: '二维码管理',
         url: '/merchant_qr_codes',

@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     getConsumes (page) {
-      this.$http.get('/consumes?page=' + page + '&search=' + this.search).then((res) => {
+      this.$http.get('/admin/consumes?page=' + page + '&search=' + this.search).then((res) => {
         this.consumes = res.data.consumes
         this.total = res.data.total
         this.current_page = res.data.current_page
