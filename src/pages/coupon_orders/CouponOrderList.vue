@@ -1,7 +1,12 @@
 <template>
   <div>
-    <Row>
-      <Col :xs="19" :sm="21" :md="22" :lg="22">
+    <Row type="flex">
+      <Col span="10">
+        <Select v-model="model1" style="width:200px">
+          <Option v-for="item in list" :value="item.value" :key="item">{{ item.label }}</Option>
+        </Select>
+      </Col>
+      <Col :xs="19" :sm="21" :md="22" :lg="22" span="14">
         <Input clearable placeholder="输入搜索内容" style="width: 40%; margin-right: 10px;" v-model="search"></Input>
         <Button type="primary" icon="ios-search" @click="getCouponOrders(1)">搜索</Button>
       </Col>
@@ -49,7 +54,13 @@ export default {
       total: null,
       current_page: null,
       modal: false,
-      search: ''
+      search: '',
+      model1: '',
+      list: [
+        {value: 'all', label: '全部'},
+        {value: 'non_payment', label: '未付款'},
+        {value: 'paid', label: '已付款'},
+      ]
     }
   },
   created () {

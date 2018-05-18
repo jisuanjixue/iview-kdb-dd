@@ -4,7 +4,7 @@
       <h3>{{formTitle}}</h3>
     </div>
     <Form :model="keyword" :label-width="100" ref="keyword" :rules="ruleInline">
-      <FormItem label="关键字" prop="keyword">
+      <FormItem label="关键字" prop="word">
         <Input v-model="keyword.word" placeholder="例如:客服电话"></Input>
       </FormItem>
       <FormItem label="回复内容" prop="reply">

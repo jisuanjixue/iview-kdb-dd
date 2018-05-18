@@ -298,6 +298,20 @@ export default {
         nickname: '消费记录',
         url: '/consumes',
         icon: 'social-usd'
+      }, {
+        id: '5002',
+        menuId: '5',
+        name: 'Items',
+        nickname: '积分商品',
+        url: '/items',
+        icon: 'social-usd'
+      }, {
+        id: '5002',
+        menuId: '5',
+        name: 'LevelRulers',
+        nickname: '等级规则',
+        url: '/level_rulers',
+        icon: 'social-usd'
       }]
     }, {
       id: '6',

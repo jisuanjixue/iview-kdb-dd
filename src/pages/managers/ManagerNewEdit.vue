@@ -14,19 +14,13 @@
         <RadioGroup v-model="manager1.role">
           <Radio label="super_admin">超级管理员</Radio>
           <Radio label="site_admin">站点管理员</Radio>
-          <!-- <Radio label="merchant_admin">商户管理员</Radio> -->
         </RadioGroup>
       </FormItem>
-      <!-- <FormItem label="管理站点" prop="site_id">
-        <Select v-model="manager1.site_id" @on-change="getMerchant">
+      <FormItem label="管理站点" prop="site_id">
+        <Select v-model="manager1.site_id">
           <Option v-for="(site, key) in allSites" :value="site.id" :key="key">{{ site.name }}</Option>
         </Select>
-      </FormItem> -->
-      <!-- <FormItem label="管理商户" prop="merchant_id" v-if="manager1.role === 'merchant_admin' && manager.id !== manager1.id">
-        <Select v-model="manager1.merchant_id">
-          <Option v-for="(merchant, key) in merchants" :value="merchant.id" :key="key">{{ merchant.name }}</Option>
-        </Select>
-      </FormItem> -->
+      </FormItem>
       <FormItem label="密码" prop="password">
         <Input v-model="manager1.password" placeholder="请填写密码" type="password"></Input>
       </FormItem>
@@ -60,9 +54,8 @@ export default {
         // mobile: null,
         role: null,
         password: null,
-        password_confirmation: null
-        // site_id: null
-        // merchant_id: null
+        password_confirmation: null,
+        site_id: null
       },
       ruleInline: {
         email: [
@@ -78,9 +71,8 @@ export default {
         password_confirmation: [
           { validator: validatePassCheck, trigger: 'blur' }
         ]
-      }
-      // allSites: null
-      // merchants: null
+      },
+      allSites: null
     }
   },
   created () {
@@ -95,9 +87,9 @@ export default {
         // }
       })
     }
-    // this.$http.get('/all_sites').then((res) => {
-    //   this.allSites = res.data.sites
-    // })
+    this.$http.get('/admin/sites').then((res) => {
+      this.allSites = res.data.sites
+    })
   },
   computed: {
     // ...mapState([
@@ -136,7 +128,7 @@ export default {
     back () {
       this.$router.go(-1)
     }
-    // getMerchant (res) {
+    // getSite (res) {
     //   this.$http.get('/current_site_merchants?site_id=' + res).then((res1) => {
     //     this.merchants = res1.data.merchants
     //   })

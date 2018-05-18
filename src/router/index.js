@@ -410,6 +410,40 @@ const router = new Router({
           },
           meta: { menuName: 'Consumes' }
         },
+        // 用户管理的积分商城
+        {
+          path: '/items',
+          name: 'Item',
+          component(resolve) {
+            require(['../pages/items/ItemList.vue'], resolve)
+          },
+          meta: { menuName: 'Items' }
+        },
+        {
+          path: '/items/new',
+          name: 'ItemNew',
+          component(resolve) {
+            require(['../pages/items/ItemNewEdit.vue'], resolve)
+          },
+          meta: { menuName: 'Items' }
+        },
+        {
+          path: '/items/:id/edit',
+          name: 'ItemEdit',
+          component(resolve) {
+            require(['../pages/items/ItemNewEdit.vue'], resolve)
+          },
+          meta: { menuName: 'Items' }
+        },
+        // 用户管理的等级规则
+        {
+          path: '/level_rulers',
+          name: 'LevelRuler',
+          component(resolve) {
+            require(['../pages/consumes/LevelRulerList.vue'], resolve)
+          },
+          meta: { menuName: 'LevelRulers' }
+        },
         // 进存销管理的进货货品类型
         {
           path: '/goods_types',
