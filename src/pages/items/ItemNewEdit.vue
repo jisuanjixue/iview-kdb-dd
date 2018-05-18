@@ -51,19 +51,19 @@ export default {
       },
       ruleInline: {
         name: [
-          { required: true, message: '请填写关键字', trigger: 'blur' }
+          { required: true, message: '请填写商品名称', trigger: 'blur' }
         ],
         count_all: [
-          { required: true, message: '请填写回复内容', trigger: 'blur' }
+          { required: true, message: '请填写可兑换数量', trigger: 'blur' }
         ]
       }
     }
   },
   created () {
     if (this.$route.name === 'ItemNew') {
-      this.formTitle = '新建关键字回复'
+      this.formTitle = '新建积分商品'
     } else {
-      this.formTitle = '编辑关键字回复'
+      this.formTitle = '编辑积分商品'
       this.$http.get('/admin/items/' + this.$route.params.id).then((res) => {
         this.item = res.data.item
       })

@@ -440,7 +440,23 @@ const router = new Router({
           path: '/level_rulers',
           name: 'LevelRuler',
           component(resolve) {
-            require(['../pages/consumes/LevelRulerList.vue'], resolve)
+            require(['../pages/level_rulers/LevelRulerList.vue'], resolve)
+          },
+          meta: { menuName: 'LevelRulers' }
+        },
+        {
+          path: '/level_rulers/new',
+          name: 'LevelRulerNew',
+          component(resolve) {
+            require(['../pages/level_rulers/LevelRulerNewEdit.vue'], resolve)
+          },
+          meta: { menuName: 'LevelRulers' }
+        },
+        {
+          path: '/level_rulers/:id/edit',
+          name: 'LevelRulerEdit',
+          component(resolve) {
+            require(['../pages/level_rulers/LevelRulerNewEdit.vue'], resolve)
           },
           meta: { menuName: 'LevelRulers' }
         },
